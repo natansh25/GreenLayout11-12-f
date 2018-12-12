@@ -3,6 +3,7 @@ package infinity1087.android.com.examplehr.ViewPager;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import infinity1087.android.com.examplehr.loginFragments.SimpleLoginFragment;
 import infinity1087.android.com.examplehr.R;
@@ -26,4 +27,6 @@ public class LoginViewPager extends AppCompatActivity {
 
 
     }
+
+
 }

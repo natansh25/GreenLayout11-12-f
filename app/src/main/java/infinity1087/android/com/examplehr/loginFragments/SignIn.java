@@ -35,7 +35,7 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
     private static final int RC_SIGN_IN = 430;
     public static GoogleSignInClient mGoogleSignInClient;
     public SignInButton google_sign_in;
-    public Button btn_fb_signin, google;
+    public Button btn_fb_signin, google, btn_login;
     public CallbackManager callbackManager;
 
     public SignIn() {
@@ -50,6 +50,14 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
         View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
 
         google_sign_in = view.findViewById(R.id.btn_google_sign_in);
+        btn_login = view.findViewById(R.id.btn_login);
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
+            }
+        });
         googlesignin();
         return view;
 
@@ -80,6 +88,7 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
     public void onClick(View v) {
         v = google;
     }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -117,7 +126,8 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
                                  Intent data) {
         if (requestCode == RC_SIGN_IN) {
        /*     GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            handleGPlusSignInResult(result)*/;
+            handleGPlusSignInResult(result)*/
+            ;
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         } else {
@@ -130,11 +140,9 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
     private void handleSignInResult(Task<GoogleSignInAccount> task) {
 
 
-
         try {
             GoogleSignInAccount account = task.getResult(ApiException.class);
-            if (account !=null)
-            {
+            if (account != null) {
                 Toast.makeText(getActivity(), "Successfull logged in !!", Toast.LENGTH_SHORT).show();
                 /*Intent i = new Intent(getActivity(), MainActivity.class);
                 startActivity(i);*/
@@ -144,7 +152,7 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
 
         } catch (ApiException e) {
 
-            Log.d("uuu",e.getMessage());
+            Log.d("uuu", e.getMessage());
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
           /*  Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());

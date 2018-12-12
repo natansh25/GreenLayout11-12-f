@@ -25,8 +25,7 @@
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".detailLayout" />
-        <activity android:name=".ViewPager.ViewPager"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".ViewPager.ViewPager">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
