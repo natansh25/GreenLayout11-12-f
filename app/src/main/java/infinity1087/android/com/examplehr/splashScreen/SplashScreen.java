@@ -10,7 +10,7 @@ import infinity1087.android.com.examplehr.R;
 import infinity1087.android.com.examplehr.ViewPager.LoginViewPager;
 
 public class SplashScreen extends AppCompatActivity {
-    private static int SPLASH_Screen = 4000;
+    private static int SPLASH_Screen = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
