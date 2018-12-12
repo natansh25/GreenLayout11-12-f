@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
 
         Pojo pojo = new Pojo("https://firebasestorage.googleapis.com/v0/b/snehnatansh.appspot.com/o/img1.jpg?alt=media&token=922bc5fb-9571-4777-8a89-4efe1da5ecc9");
         mPojos.add(pojo);
-        Pojo pojo1 = new Pojo("https://firebasestorage.googleapis.com/v0/b/snehnatansh.appspot.com/o/img1.jpg?alt=media&token=922bc5fb-9571-4777-8a89-4efe1da5ecc9");
+        Pojo pojo1 = new Pojo("https://firebasestorage.googleapis.com/v0/b/snehnatansh.appspot.com/o/img2.jpg?alt=media&token=b3e6793a-cd24-4860-b4d1-5cc57fecc0da");
         mPojos.add(pojo1);
 
         mAdapter = new RecyclerAdapter(mPojos);

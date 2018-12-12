@@ -13,6 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import infinity1087.android.com.examplehr.R;
+import infinity1087.android.com.examplehr.RoundedTransformation;
 import infinity1087.android.com.examplehr.model.Pojo;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyVIewHolder> {
@@ -39,7 +40,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyVIew
     public void onBindViewHolder(@NonNull MyVIewHolder myVIewHolder, int i) {
 
         Pojo pojo = mList.get(i);
-        Picasso.get().load(pojo.getPath()).error(R.drawable.ic_launcher_background).placeholder(R.drawable.img1).into(myVIewHolder.img);
+        Picasso.get().load(pojo.getPath()).error(R.drawable.ic_launcher_background).placeholder(R.drawable.img1).transform(new RoundedTransformation(20,0)).into(myVIewHolder.img);
         Log.d("nan",pojo.getPath());
     }
 
