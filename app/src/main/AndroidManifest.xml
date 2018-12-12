@@ -12,19 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ViewPager.LoginViewPager"
+            android:name=".splashScreen.SplashScreen"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Row_item" />
-        <activity android:name=".SplashScreen" />
+        <activity android:name=".ViewPager.LoginViewPager"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".detailLayout" />
-        <activity android:name=".ViewPager.ViewPager">
+        <activity android:name=".ViewPager.ViewPager"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />

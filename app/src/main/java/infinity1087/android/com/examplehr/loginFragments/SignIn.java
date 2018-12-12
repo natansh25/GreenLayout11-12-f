@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -134,13 +135,16 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
             GoogleSignInAccount account = task.getResult(ApiException.class);
             if (account !=null)
             {
-                Intent i = new Intent(getActivity(), MainActivity.class);
-                startActivity(i);
+                Toast.makeText(getActivity(), "Successfull logged in !!", Toast.LENGTH_SHORT).show();
+                /*Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);*/
             }
 
             // Signed in successfully, show authenticated UI.
 
         } catch (ApiException e) {
+
+            Log.d("uuu",e.getMessage());
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
           /*  Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
