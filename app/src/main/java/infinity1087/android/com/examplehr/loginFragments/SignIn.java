@@ -35,6 +35,7 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
     private static final int RC_SIGN_IN = 430;
     public static GoogleSignInClient mGoogleSignInClient;
     public SignInButton google_sign_in;
+    public static String user_image, user_name, user_mail;
     public Button btn_fb_signin, google, btn_login;
     public CallbackManager callbackManager;
 
@@ -139,12 +140,15 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
 
     private void handleSignInResult(Task<GoogleSignInAccount> task) {
 
-        Log.d("xaxa","loggedInsuccessfully");
+        Log.d("xaxa", "loggedInsuccessfully");
 
 
         try {
             GoogleSignInAccount account = task.getResult(ApiException.class);
             if (account != null) {
+                user_name = account.getDisplayName();
+                user_mail = account.getEmail();
+                user_image = String.valueOf(account.getPhotoUrl());
                 Toast.makeText(getActivity(), "welcome : " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(getActivity(), MainActivity.class);
                 startActivity(i);
@@ -154,7 +158,7 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
 
         } catch (ApiException e) {
 
-            Log.d("uuu", e.getMessage() + " : " +e.getLocalizedMessage());
+            Log.d("uuu", e.getMessage() + " : " + e.getLocalizedMessage());
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
           /*  Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());

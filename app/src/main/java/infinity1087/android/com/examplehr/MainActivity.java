@@ -16,7 +16,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -80,6 +84,28 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View view = navigationView.getHeaderView(0);
+        ImageView img = view.findViewById(R.id.img_header);
+        TextView txt_name = view.findViewById(R.id.txt_username);
+        TextView txt_email = view.findViewById(R.id.txt_email);
+
+        if (SignIn.user_image !=null )
+        {
+            Picasso.get().load(SignIn.user_image).error(R.drawable.ic_launcher_background).into(img);
+        }
+        if (SignIn.user_name !=null)
+        {
+            txt_name.setText(SignIn.user_name);
+        }
+        if (SignIn.user_mail !=null)
+        {
+            txt_email.setText(SignIn.user_mail);
+        }
+
+
+
+
+
         navigationView.setNavigationItemSelectedListener(this);
 
 
