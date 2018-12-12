@@ -25,7 +25,9 @@ import java.util.List;
 import infinity1087.android.com.examplehr.Fragment.SimpleFragmentPageAdapter;
 import infinity1087.android.com.examplehr.Services.ApiClient;
 import infinity1087.android.com.examplehr.Services.ApiInterface;
+import infinity1087.android.com.examplehr.ViewPager.LoginViewPager;
 import infinity1087.android.com.examplehr.adapter.RecyclerAdapter;
+import infinity1087.android.com.examplehr.loginFragments.SignIn;
 import infinity1087.android.com.examplehr.model.Example;
 import infinity1087.android.com.examplehr.model.Pojo;
 import infinity1087.android.com.examplehr.model.ResponseDatum;
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity
     private ApiInterface apiInterface;
     private List<ResponseDatum> results;
 
-    List<Pojo> mPojos=new ArrayList<>();
+    List<Pojo> mPojos = new ArrayList<>();
 
 
     @Override
@@ -107,6 +109,7 @@ public class MainActivity extends AppCompatActivity
                 results = response.body().getResponseData();
 
             }
+
             @Override
             public void onFailure(Call<Example> call, Throwable t) {
 
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity
     private void setupRecyclerView() {
 
         mRecyclerView = findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
 
     }
@@ -129,8 +132,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
     }
@@ -151,6 +153,10 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            SignIn.mGoogleSignInClient.signOut();
+            Intent i = new Intent(this, LoginViewPager.class);
+            startActivity(i);
+            finish();
 
             return true;
         }
@@ -172,7 +178,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-        }  else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_send) {
 
         }
 
@@ -183,7 +189,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void img_btn1(View view) {
-        Intent i = new Intent(MainActivity.this,detailLayout.class);
+        Intent i = new Intent(MainActivity.this, detailLayout.class);
         i.putExtra("yyy", (Serializable) results);
         startActivity(i);
     }

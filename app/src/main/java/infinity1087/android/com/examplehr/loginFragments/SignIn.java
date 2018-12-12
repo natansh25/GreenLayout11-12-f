@@ -139,20 +139,22 @@ public class SignIn extends Fragment implements View.OnClickListener, GoogleApiC
 
     private void handleSignInResult(Task<GoogleSignInAccount> task) {
 
+        Log.d("xaxa","loggedInsuccessfully");
+
 
         try {
             GoogleSignInAccount account = task.getResult(ApiException.class);
             if (account != null) {
-                Toast.makeText(getActivity(), "Successfull logged in !!", Toast.LENGTH_SHORT).show();
-                /*Intent i = new Intent(getActivity(), MainActivity.class);
-                startActivity(i);*/
+                Toast.makeText(getActivity(), "welcome : " + account.getDisplayName(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getActivity(), MainActivity.class);
+                startActivity(i);
             }
 
             // Signed in successfully, show authenticated UI.
 
         } catch (ApiException e) {
 
-            Log.d("uuu", e.getMessage());
+            Log.d("uuu", e.getMessage() + " : " +e.getLocalizedMessage());
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
           /*  Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());

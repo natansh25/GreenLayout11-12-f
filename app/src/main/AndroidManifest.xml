@@ -24,7 +24,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".detailLayout" />
+        <activity android:name=".detailLayout"
+            android:theme="@style/AppTheme"/>
         <activity android:name=".ViewPager.ViewPager">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
